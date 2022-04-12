@@ -3,36 +3,34 @@ const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const OrderItemSchema = new Schema({
-	name: {
-		type: String,
-		minlength: [3, 'Panjang nama makanan minimal 3 karakter'],
-		required: [true, 'Nama makanan harus diisi']
-	},
 
-	price: {
-		type: Number,
-		default: 0
-	},
+  name: {
+    type: String, 
+    minlength: [5, 'Panjang nama makanan minimal 50 karakter'],
+    required: [true, 'name must be filled']
+  },
 
-	qty: {
-		type: Number,
-		required: [true, 'Nama makanan harus diisi'],
-		min: [1, 'tambahkan minimal 1 product']
-	},
+  price: {
+    type: Number, 
+    required: [true, 'Harga item harus diisi']
+  }, 
 
-	image_url: String,
+  qty: {
+    type: Number, 
+    required: [true, 'Kuantitas harus diisi'],
+    min: [1, 'Kuantitas minimal 1']
+  },
 
-	product: {
-		type: Schema.Types.ObjectId,
-		ref: 'Product'
-	},
+  product: {
+    type: Schema.Types.ObjectId, 
+    ref: 'Product'
+  }, 
 
-	order: {
-		type: Schema.Types.ObjectId,
-		ref: 'Order'
-	}
-
-}, { timestamps: true })
+  order: {
+    type: Schema.Types.ObjectId, 
+    ref: 'Order'
+  }
+});
 
 const OrderItem = mongoose.model('OrderItem', OrderItemSchema)
 

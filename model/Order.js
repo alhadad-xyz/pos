@@ -28,16 +28,18 @@ const OrderSchema = new Schema({
 		ref: 'User'
 	},
 
-	order_item: {
-		type: Schema.Types.ObjectId,
-		ref: 'OrderItem'
-	}
+	order_items: [
+		{
+			type: Schema.Types.ObjectId,
+			ref: 'OrderItem'
+		}
+	]
 
 }, { timestamps: true })
 
 OrderSchema.plugin(AutoIncrement, {inc_field: 'order_number'})
 OrderSchema.virtual('items_count').get(function() {
-	return this.order_items.reduce((total, item) => item * parseInt(item.qty), 0)
+	return this.order_items.reduce((total, item) => total * parseInt(item.qty), 0)
 })
 OrderSchema.post('save', async function() {
 	let sub_total = this.order_items.reduce((total, item) => total += (item.price * item.qty), 0)
@@ -46,7 +48,7 @@ OrderSchema.post('save', async function() {
 		order: this._id,
 		sub_total: sub_total,
 		shipping_fee: parseInt(this.shipping_fee),
-		total: parseInt(sub_total + this.shipping_fee),
+		total: parseFloat(sub_total + this.shipping_fee),
 		shipping_address: this.shipping_address
 	})
 	await invoice.save()

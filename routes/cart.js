@@ -9,7 +9,7 @@ router.get('/cart',
 
 router.put('/cart',
 	policy_check('update', 'Cart'),
-	cart.index
+	cart.update
 )
 
 module.exports = router

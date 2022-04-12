@@ -28,7 +28,7 @@ const index = async (req, res, next) => {
 
 const store = async (req, res, next) => {
 	try {
-		let { shipping_fee, shipping_address } = req.body
+		let { shipping_address, shipping_fee } = req.body
 		const items = await CartItem.find({user: req.user._id}).populate('product')
 		if (!items) {
 			return res.json({
@@ -55,10 +55,11 @@ const store = async (req, res, next) => {
 			...item,
 			name: item.product.name,
 			qty: parseInt(item.qty),
-			price: parseInt(item.product.price),
+			price: parseFloat(item.product.price),
 			order: order._id,
 			product: item.product._id
 		})))
+
 		orderItem.forEach(item => order.order_items.push(item))
 		order.save()
 		await CartItem.deleteMany({user: req.user._id})
