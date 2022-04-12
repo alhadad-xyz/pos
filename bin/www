@@ -29,7 +29,7 @@ try {
     server.listen(port);
     server.on('error', onError)
     server.on('listening', onListening)
-    console.log('Connection has been established successfully.');
+    console.log('Connection has been established successfully. running at ' + port);
   })
 } catch (error) {
   console.error('Unable to connect to the database:', error);
