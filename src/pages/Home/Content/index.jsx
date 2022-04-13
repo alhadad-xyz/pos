@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import Navbar from '../../../components/Navbar/Navbar'
-import Category from './Category/Category'
-import Search from './SearchBar/Search'
-import Cards from './Cards/Cards'
 import { useDispatch, useSelector } from 'react-redux'
 import { getCategories } from '../../../app/api/product';
 import { fetchProducts, setPage, setCategory } from '../../../app/features/Product/actions';
-
-import Pagination from './Pagination/Pagination'
+import Navbar from '../../../components/Navbar/Navbar'
+import Category from '../../../components/Category'
+import Search from '../../../components/Search'
+import Cards from '../../../components/Cards'
+import Pagination from '../../../components/Pagination'
 
 const Wrapper = styled.section`
     width: 65%;
@@ -33,6 +32,7 @@ const Content = () => {
             <Cards products={products}/>
             <Pagination 
                 total={Math.ceil(products.totalItems / products.perPage)}
+                data={products.data}
                 active={products.currentPage}
                 onSetPage={page => dispatch(setPage(page))}
             />

@@ -1,20 +1,21 @@
+import Content from './Content'
+import Sidebar from './Sidebar'
 import styled from 'styled-components'
-import Sidebar from './Sidebar/Sidebar'
-import Content from './Content/Content'
 
 const Wrapper = styled.section`
 	display: flex;
 	width: 100%;
 	height: 100vh;
+	background-color: #f6f7fa;
 `
 
-const Dashboard = () => {
+const Home = () => {
 	return (
 		<Wrapper>
-			<Sidebar />
 			<Content />
+			<Sidebar />
 		</Wrapper>
 	)
 }
 
-export default Dashboard
+export default Home

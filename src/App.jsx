@@ -2,11 +2,11 @@ import { BrowserRouter as Router, Navigate, Route, Routes } from 'react-router-d
 import { useEffect } from 'react';
 import { listen } from './app/listener';
 import { useSelector } from 'react-redux';
-import Home from './pages/Home/Home'
-import Login from './pages/Auth/Login/Login'
-import Register from './pages/Auth/Register/Register'
-import Logout from './pages/Auth/Logout/Logout'
-import Dashboard from './pages/Dashboard/Dashboard'
+import Home from './pages/Home'
+import Login from './pages/Auth/Login'
+import Register from './pages/Auth/Register'
+import Logout from './pages/Auth/Logout'
+import Dashboard from './pages/Dashboard'
 import Transaction from './pages/Dashboard/Transaction'
 import Address from './pages/Dashboard/Address'
 import Account from './pages/Dashboard/Account'
@@ -23,10 +23,6 @@ const App = () => {
   return (
     <Router>
       <Routes>
-{/*        
-        <Route path="/checkout" component={Checkout}/>
-        <Route path="/account" component={Account}/>
-        <Route path="/cart" component={Cart}/>*/}
         <Route path="/" exact element={<Home />} />
         <Route
           path="/auth/signin" 

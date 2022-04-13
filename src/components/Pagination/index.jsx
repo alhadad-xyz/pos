@@ -35,7 +35,7 @@ const Count = styled.h4`
 	color: #888;
 `
 
-const Pagination = ({total, active, onSetPage}) => {
+const Pagination = ({total, data, active, onSetPage}) => {
   const [activePage, setActivePage] = useState(active);
   const handleClick = page => {
     onSetPage(page);
@@ -50,7 +50,7 @@ const Pagination = ({total, active, onSetPage}) => {
 			<Count>
 				{ activePage } of { total }
 			</Count>	
-			<Next disabled={activePage === total} onClick={() => handleClick(activePage + 1)} >
+			<Next disabled={activePage === total || data.length < 10} onClick={() => handleClick(activePage + 1)} >
 				<SkipNextCircle size='32'/>
 			</Next>	
 		</Wrapper>

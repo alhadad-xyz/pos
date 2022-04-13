@@ -8,6 +8,8 @@ const Wrapper = styled.section`
 `
 const Button = styled.button`
 	padding: .80em 1.6em;
+	width: 15%;
+	min-height: 48px;
 	margin: 0 .64em;
 	font-size: .8rem;
 	background-color: ${props => props.bg ? '#f07613' : '#fff' };
@@ -20,6 +22,16 @@ const Button = styled.button`
 	&:hover {
 		background-color: ${props => props.bg ? '#e86e0b' : '#f4f5f6' };
 	}
+`
+const ButtonPlaceholder = styled.button`
+	padding: .80em 1.6em;
+	margin: 0 .64em;
+	font-size: .8rem;
+	width: 15%;
+	min-height: 48px;
+	background-color: #eee;
+	border: none;
+	border-radius: 2em;
 `
 const Active = styled.button`
 	padding: .80em 1.6em;
@@ -41,14 +53,17 @@ const Category = ({items, onClick}) => {
       	onClick={() => onClick('')}
       	menuBg={products.category === ''}
 			>All Menu</Active>
-			{
-        items.map((item, i) => (
+			{ items.length > 0
+				?	items.map((item, i) => (
           <Button 
             key={i}
             bg={products.category.includes(item.name)} 
             onClick={() => onClick(item.name)}
           > {item.name}</Button>
         ))
+        : Array.from({length: 5}).map((_, idx) => (
+					<ButtonPlaceholder key={idx} disabled/>
+				))
       }
 		</Wrapper>
 	)

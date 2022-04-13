@@ -17,11 +17,6 @@ const Image = styled.div`
 	height: 70%;
 	background-color: #eee;
 	margin: 0 auto;
-	img {
-		transition: .8s all ease-in-out;
-		&:hover {
-			transform: scale(1.2);
-		}
 	}
 `
 

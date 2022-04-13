@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { setKeyword } from '../../../../app/features/Product/actions'
+import { setKeyword } from '../../app/features/Product/actions'
 
 import styled from 'styled-components'
 

@@ -10,6 +10,9 @@ const Wrapper = styled.section`
 	justify-content: space-between;
 	align-items: center;
 	margin: 1em;
+	padding: .4em .4em;
+	background-color: #fff;
+	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 	border-radius: 1em;
 `
 const Container = styled.div`

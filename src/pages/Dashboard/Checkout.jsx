@@ -141,18 +141,18 @@ const Checkout = () => {
 				<Title>Shipping Address</Title>
 				<Cards>
 					{	
-						address === []
-						? <Counter>
-								<Name>Please add your address first</Name>
-								<Detail><Button onClick={() => navigate('/address')}>Here</Button></Detail>
-							</Counter>
-						:	address.map((item, i) => (
-								<Card key={i}>
-									<Radio type="radio" value={ item._id } name='address' onChange={ handleChange }/>
-									<Name>{ item.name }</Name>
-									<Detail>{ `${item.provinsi}, ${item.kabupaten}, ${item.kecamatan}, ${item.kelurahan}, ${item.detail}` }</Detail>
-								</Card>
-							))
+						address.length > 0
+						?	address.map((item, i) => (
+							<Card key={i}>
+								<Radio type="radio" value={ item._id } name='address' onChange={ handleChange }/>
+								<Name>{ item.name }</Name>
+								<Detail>{ `${item.provinsi}, ${item.kabupaten}, ${item.kecamatan}, ${item.kelurahan}, ${item.detail}` }</Detail>
+							</Card>
+						))
+						: <Counter>
+							<Name>Please add your address first</Name>
+							<Detail><Button onClick={() => navigate('/address')}>Here</Button></Detail>
+						</Counter>
 					}
 				</Cards>
 				<Cards>

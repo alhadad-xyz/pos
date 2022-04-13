@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux'
-import { addItem } from '../../../../app/features/Cart/actions';
+import { addItem } from '../../app/features/Cart/actions';
 import styled from 'styled-components'
 import CardPlaceholder from './CardPlaceholder'
 import Card from './Card'

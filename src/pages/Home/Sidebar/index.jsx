@@ -2,9 +2,9 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { listen } from '../../.././app/listener';
 import styled from 'styled-components'
-import Guest from './Guest/Guest'
 import Cart from './Cart/Cart'
-import Counter from './Counter/Counter'
+import Counter from '../../../components/Counter'
+import Guest from '../../../components/Guest'
 
 const Wrapper = styled.section`
   width: 35%;

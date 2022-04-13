@@ -1,4 +1,4 @@
-import { sumPrice } from '../../../../utils';
+import { sumPrice } from '../../utils';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components'
 

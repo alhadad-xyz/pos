@@ -1,4 +1,4 @@
-import { config } from '../../../../config'
+import { config } from '../../config'
 import styled from 'styled-components'
 
 const Wrapper = styled.div`
