@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { config } from '../../config'
 import styled from 'styled-components'
 
@@ -43,8 +44,10 @@ const PriceTag = styled.h5`
 
 
 const Card = ({item, onAddToCart}) => {
+  const auth = useSelector(state => state.auth);
+
 	return (
-		<Wrapper onClick={() => onAddToCart()}>
+		<Wrapper onClick={() => auth.user ? onAddToCart() : null }>
 			<Image>
 				<img src={`${config.api_host}/images/products/${item.image_url}`} alt="okay" width="100%" />
 			</Image>

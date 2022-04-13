@@ -68,6 +68,9 @@ const Sidebar = () => {
 				<Navigation to='/account'>
 					<UserCircle size='24' /> Account
 				</Navigation>
+				<Navigation to='/'>
+					<UserCircle size='24' /> Back
+				</Navigation>
 			</Container>
 			<Button to='/auth/logout'>
 				Logout
