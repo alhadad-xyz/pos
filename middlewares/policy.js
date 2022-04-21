@@ -6,7 +6,7 @@ function policy_check(action, subject) {
 		if(!policy.can(action, subject)) {
 			return res.json({
 				error: 1,
-				message: `Tidak memiliki akses untuk melakukan aksi ${action} ${subject}`
+				message: `You don't have an access to ${action} ${subject}`
 			})
 		}
 

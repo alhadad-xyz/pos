@@ -1,17 +1,17 @@
 const router = require('express').Router()
 const policy_check = require('../middlewares/policy')
-const tag = require('../controller/tag')
+const tag = require('../controller/tag.controller')
 
-router.get('/tags', tag.index)
-router.post('/tags',
+router.get('/tag', tag.index)
+router.post('/tag',
 	policy_check('create', 'Tag'),
 	tag.store
 )
-router.put('/tags/:id',
+router.put('/tag/:id',
 	policy_check('update', 'Tag'),
  	tag.update
 )
-router.delete('/tags/:id',
+router.delete('/tag/:id',
 	policy_check('delete', 'Tag'),
 	tag.destroy
 )

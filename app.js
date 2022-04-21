@@ -5,14 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors')
 const {decodeToken} = require('./middlewares/auth')
-const user = require('./routes/users')
-const product = require('./routes/products')
-const category = require('./routes/categories')
-const tag = require('./routes/tags')
-const shippingAddress = require('./routes/shippingAddress')
-const cart = require('./routes/cart')
-const order = require('./routes/order')
-const invoice = require('./routes/invoices')
+const user = require('./routes/user.route')
+const product = require('./routes/product.route')
+const category = require('./routes/category.route')
+const tag = require('./routes/tag.route')
+const shippingAddress = require('./routes/shippingAddress.route')
+const cart = require('./routes/cart.route')
+const order = require('./routes/order.route')
+const invoice = require('./routes/invoice.route')
 var app = express();
 
 // view engine setup

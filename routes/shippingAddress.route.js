@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const policy_check = require('../middlewares/policy')
-const shippingAddress = require('../controller/shippingAddress')
+const shippingAddress = require('../controller/shippingAddress.controller')
 
 router.get('/shipping-address', shippingAddress.index)
 router.post('/shipping-address',
