@@ -2,100 +2,10 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup'
 import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { getAddress, createAddress } from '../../app/api/address';
-import SelectMenu from '../../components/SelectMenu'
-import styled from 'styled-components'
-import Sidebar from './Sidebar'
-
-const Wrapper = styled.section`
-	display: flex;
-	width: 100%;
-	height: 100vh;
-`
-const Content = styled.div`
-	width: 80%;
-	height: 100%;
-	padding: 2em;
-	background-color: #eee;
-	overflow-y: auto;
-`
-const Title = styled.h1`
-	font-size: 2rem
-`
-const Container = styled.div`
-	display: flex;
-	justify-content: space-between;
-`
-const List = styled.div`
-	width: 60%;
-	height: 80vh;
-`
-const Forms = styled.form`
-	width: 36%;
-	padding: 2em;
-	border-radius: 1em;
-	background-color: #fff;
-`
-const Card = styled.div`
-	margin-bottom: 1em;
-	width: 100%;
-	display: flex;
-	padding: 2em;
-	border-radius: 1em;
-	background-color: #fff;
-	flex-wrap: wrap;
-	grid-gap: 1em;
-`
-const Label = styled.div`
-	flex: 30%;
-`
-const Text = styled.input`
-	flex: 50%;
-	padding: .4em 1em;
-	border-radius: 1em;
-	border: 1px solid #eee;
-`
-const Feedback = styled.p`
-	font-size: .8rem;
-	margin: 0 auto 0 2em;
-	color: red;
-`
-const Input = styled.input`
-	width: 100%;
-	flex: 50%;
-	padding: .4em 1em;
-	border-radius: 1em;
-	border: 1px solid #888;
-`
-const TextArea = styled.textarea`
-	width: 100%;
-	flex: 50%;
-	padding: .4em 1em;
-	border-radius: 1em;
-	border: 1px solid #888;
-
-`
-const Submit = styled.button`
-	padding: .4em 2em;
-	border: none;
-	cursor: pointer;
-	outline: none;
-	border-radius: 1em;
-	border: 1px solid #888;	
-	background-color: #f07613;
-	color: #fff;
-	margin: 1em 0;
-`
-const FormTitle = styled.h1`
-	text-align: center;
-	margin-bottom: 1em;
-`
-const Header = styled.div`
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-`
+import { getAddress, createAddress } from '../../../app/api/address';
+import SelectMenu from '../../../components/SelectMenu'
+import Sidebar from '../Sidebar'
+import { Wrapper, Content, Title, Container, List, Forms, Card, Label, Text, Feedback, Input, TextArea, Submit, FormTitle, Header } from './styled'
 
 const schema = yup.object({
   name: yup.string().required('Nama alamat harus diisi'),

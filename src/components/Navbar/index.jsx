@@ -1,13 +1,9 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { listen } from '../.././app/listener';
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import { User } from '@styled-icons/boxicons-regular'
-import { SettingsOutline } from '@styled-icons/evaicons-outline'
+import { Wrapper, Title, Container, DateNow, Button, SettingIcon, UserIcon } from './styled'
 
-// GET TODAY DATE
-export const getDate = () => {
+const getDate = () => {
   const d = new Date()
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
   const day = days[d.getDay()]
@@ -21,23 +17,7 @@ export const getDate = () => {
   return today
 }
 
-// CEK AVAILABLE USER
-const Button = styled(Link)`
-  padding: .5em 1em;
-  background-color: #f4f5f6;
-  border-radius: .5em;
-  display: flex;
-  align-items: center;
-  grid-gap: .8em;
-  cursor: pointer;
-`
-const SettingIcon = styled(SettingsOutline)`
-  color: #000;
-`
-const UserIcon = styled(User)`
-  color: #000;
-`
-export const MenuIcon = () => {
+const MenuIcon = () => {
   const auth = useSelector(state => state.auth);
 
   useEffect(() => {
@@ -54,3 +34,17 @@ export const MenuIcon = () => {
     )
   }
 }
+
+const Navbar = () => {
+    return (
+        <Wrapper>
+            <Title>Foodie's</Title>
+            <Container>
+                <DateNow>{getDate()}</DateNow>
+                <MenuIcon />                     
+            </Container>
+        </Wrapper>
+    )
+}
+
+export default Navbar

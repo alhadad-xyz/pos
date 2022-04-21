@@ -1,8 +1,6 @@
-import { useSelector } from 'react-redux';
-import { config } from '../../config'
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	width: 148px;
 	height: 180px;
 	display: flex;
@@ -18,7 +16,7 @@ const Wrapper = styled.div`
 	}
 `
 
-const Image = styled.div`
+export const Image = styled.div`
 	width: 100%;
 	height: 70%;
 	margin: 0 auto;
@@ -30,31 +28,14 @@ const Image = styled.div`
 	}
 `
 
-const Title = styled.h1`
+export const Title = styled.h1`
 	max-width: 100%;
 	text-align: center;
 	margin: 0 auto;
 	font-size: .84rem;
 `
 
-const PriceTag = styled.h5`
+export const PriceTag = styled.h5`
 	margin: 0 auto;
 	color: #f07613;
 `
-
-
-const Card = ({item, onAddToCart}) => {
-  const auth = useSelector(state => state.auth);
-
-	return (
-		<Wrapper onClick={() => auth.user ? onAddToCart() : null }>
-			<Image>
-				<img src={`${config.api_host}/images/products/${item.image_url}`} alt="okay" width="100%" />
-			</Image>
-			<Title>{item.name}</Title>
-			<PriceTag>${item.price}</PriceTag>
-		</Wrapper>
-	)
-}
-
-export default Card

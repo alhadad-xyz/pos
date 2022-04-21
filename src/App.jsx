@@ -10,8 +10,8 @@ import Dashboard from './pages/Dashboard'
 import Transaction from './pages/Dashboard/Transaction'
 import Address from './pages/Dashboard/Address'
 import Account from './pages/Dashboard/Account'
-import Checkout from './pages/Dashboard/Checkout'
-import Invoices from './pages/Dashboard/Invoices'
+import Checkout from './pages/Checkout'
+import Invoices from './pages/Invoices'
 
 const App = () => {
   const auth = useSelector(state => state.auth);

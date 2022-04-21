@@ -1,99 +1,13 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { createOrder } from '../../app/api/order';
 import { getAddress } from '../../app/api/address';
 import { clearItem } from '../../app/features/Cart/actions';
 import { sumPrice } from '../../utils';
 import { config } from '../../config';
-import styled from 'styled-components'
+import { Wrapper, Container, Title, Button, Cards, Card, Counter, Radio, Name, Detail, Text, TextLink } from './styled'
 
-const Wrapper = styled.section`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100vh;
-	background: rgb(166,82,15);
-	background: linear-gradient(90deg, rgba(166,82,15,1) 0%, rgba(240,118,19,1) 35%, rgba(255,158,1,1) 100%); 
-`
-const Container = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 1em;
-	padding: 2em;
-	background-color: #eee;
-`
-const Title = styled.h1`
-`
-// const Feedback = styled.p`
-// 	font-size: .8rem;
-// 	margin: 0 auto 0 2em;
-// 	color: red;
-// `
-
-const Button = styled.button`
-	margin: 1em 0;
-	padding: 1em 2em;
-	border: none;
-	outline: none;
-	border-radius: 1em;
-	font-weight: 800;
-	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-	background: rgba(240,118,19,1);
-	color: #fff;
-	cursor: pointer;
-`
-const Cards = styled.div`
-	width: 100%;
-	border-radius: 1em;
-	background-color: #fff;
-	padding: 1em;
-`
-const Card = styled.div`
-	display: flex;
-	grid-gap: 0 2em;
-	align-items: center;
-	width: 100%;
-	padding: 1em 1em;
-	border-radius: 1em;
-	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-`
-
-const Counter = styled.div`
-	min-width: 600px;
-	display: flex;
-	grid-gap: 0 2em;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-	padding: .5em 1em;
-	border-radius: 1em;
-	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-`
-
-const Radio = styled.input``
-const Name = styled.p`
-	width: 160px;
-	font-size: 1rem;
-	word-wrap: wrap;
-`
-
-const Detail = styled.p`
-	font-size: 1rem;
-	word-wrap: wrap;
-`
-const Text = styled.p`
-	font-size: .8rem;
-	color: #666;
-`
-
-const TextLink = styled(Link)`
-	text-decoration: none;
-	font-weight: 600;
-	color: rgba(240,118,19,1);
-`
 export const statusList = {
   idle: 'idle',
   process: 'process',
@@ -126,13 +40,10 @@ const Checkout = () => {
     }
 
     const { data } = await createOrder(payload);
-    if(!data.error) {
-			setStatus(statusList.success);
-      dispatch(clearItem());
-      navigate(`/invoices/${data._id}`);
-    }
-    
-    setStatus(statusList.error)
+    if(data.error) setStatus(statusList.error)
+		setStatus(statusList.success);
+    dispatch(clearItem());
+    navigate(`/invoices/${data.data._id}`);
   }
 
 	return (

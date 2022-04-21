@@ -1,17 +1,10 @@
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 import { listen } from '../../.././app/listener';
-import styled from 'styled-components'
-import Cart from './Cart/Cart'
+import Cart from './Cart'
 import Counter from '../../../components/Counter'
 import Guest from '../../../components/Guest'
-
-const Wrapper = styled.section`
-  width: 35%;
-  height: 100vh;
-  background-color: #fff;
-  position: relative;
-`
+import { Wrapper } from './styled'
 
 const Sidebar = () => {  
   const cart = useSelector(state => state.cart);

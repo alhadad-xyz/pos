@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 	width: 148px;
 	height: 180px;
 	display: flex;
@@ -12,7 +12,7 @@ const Wrapper = styled.div`
 	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
 `
 
-const Image = styled.div`
+export const Image = styled.div`
 	width: 100%;
 	height: 70%;
 	background-color: #eee;
@@ -20,7 +20,7 @@ const Image = styled.div`
 	}
 `
 
-const Title = styled.h1`
+export const Title = styled.h1`
 	width: 80%;
 	height: 15%;
 	background-color: #eee;
@@ -29,23 +29,10 @@ const Title = styled.h1`
 	font-size: .84rem;
 `
 
-const PriceTag = styled.h5`
+export const PriceTag = styled.h5`
 	width: 40%;
 	height: 15%;
 	margin: 0 auto;
 	background-color: #eee;
 	color: #f07613;
 `
-
-
-const CardPlaceholder = () => {
-	return (
-		<Wrapper>
-			<Image />
-			<Title></Title>
-			<PriceTag></PriceTag>
-		</Wrapper>
-	)
-}
-
-export default CardPlaceholder

@@ -1,26 +1,14 @@
 import { config } from '../../config'
-import axios from 'axios'
+import { get, post } from './request-manager'
 
 export const getAddress = async () => {
-  const { token } = localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : {};
-
-  return await axios.get(`${config.api_host}/api/shipping-address`, {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  })
+  return await get(`${config.api_host}/api/shipping-address`)
 }
 
-export const getLocation = async (lokasi, kodeInduk) => {
-  return await axios.get(`https://regions-indoneisa.herokuapp.com/api/${lokasi}?kode_induk=${kodeInduk}`);
+export const getLocation = async (location, code) => {
+  return await get(`https://regions-indoneisa.herokuapp.com/api/${location}?kode_induk=${code}`);
 }
 
 export const createAddress = async data => {
-  const { token } = localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : {};
-
-  return await axios.post(`${config.api_host}/api/shipping-address`, data, {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  })
+  return await post(`${config.api_host}/api/shipping-address`, data)
 }

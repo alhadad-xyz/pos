@@ -1,22 +1,16 @@
 import { useState, useEffect } from 'react'
-import styled from 'styled-components'
 import { getLocation } from '../../app/api/address';
 import PropTypes from 'prop-types';
-
-const Select = styled.select`
-	width: 100%;
-	flex: 50%;
-	padding: .4em 1em;
-	border-radius: 1em;
-	border: 1px solid #888;
-`
+import { Select } from './styled'
 
 const SelectMenu = ({location, code, onChange, isInvalid, value}) => {
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
     getLocation(location, code)
-    .then(({data}) => setLocations(data))
+    .then(({data}) => {
+      setLocations(data);
+    })
   }, [location, code]);
 
 	return (

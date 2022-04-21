@@ -1,31 +1,14 @@
-import axios from "axios"
+import { get, post } from "./request-manager"
 import { config } from "../../config"
 
 export const createOrder = async payload => {
-  const { token } = localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : {};
-
-  return await axios.post(`${config.api_host}/api/orders`, payload, {
-    headers: {
-      authorization: `Bearer ${token}`
-    }
-  })
+  return await post(`${config.api_host}/api/order`, payload)
 }
 
 export async function getInvoiceByOrderId(order_id) {
-  let { token } = localStorage.getItem('auth') ? JSON.parse(localStorage.getItem('auth')) : {};
-
-  return await axios
-    .get(`${config.api_host}/api/invoices/${order_id}`, {
-      headers: {
-        authorization: `Bearer ${token}`
-      }
-    });
+  return await get(`${config.api_host}/api/invoice/${order_id}`);
 }
 
 export async function getOrders(){
-  let { token } = localStorage.getItem('auth')
-          ? JSON.parse(localStorage.getItem('auth')) : {};
-
-  return await axios
-    .get(`${config.api_host}/api/orders`, {headers: { authorization: `Bearer ${token}`}});
+  return await get(`${config.api_host}/api/order`);
 }

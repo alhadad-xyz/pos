@@ -3,77 +3,8 @@ import { useForm } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup'
 import { registerUser } from '../../../app/api/auth'
-import { useNavigate, Link } from 'react-router-dom'
-import styled from 'styled-components'
-
-const Wrapper = styled.section`
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	height: 100vh;
-	background: rgb(166,82,15);
-	background: linear-gradient(90deg, rgba(166,82,15,1) 0%, rgba(240,118,19,1) 35%, rgba(255,158,1,1) 100%); 
-`
-const Container = styled.form`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	border-radius: 1em;
-	padding: 2em;
-	background-color: #eee;
-`
-const Title = styled.h1`
-`
-const Field = styled.input`
-	margin: 1em 0;
-	padding: 1em 2em;
-	border: none;
-	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-	outline: none;
-	border-radius: 1em;
-`
-const Feedback = styled.p`
-	font-size: .8rem;
-	margin: 0 auto 0 2em;
-	color: red;
-`
-const Button = styled.button`
-	margin: 1em 0;
-	padding: 1em 2em;
-	border: none;
-	outline: none;
-	border-radius: 1em;
-	font-weight: 800;
-	box-shadow: rgba(33, 35, 38, 0.1) 0px 10px 10px -10px;
-	background: rgba(240,118,19,1);
-	color: #fff;
-	cursor: pointer;
-`
-const Alert = styled.div`
-	position: absolute;
-	top: 4%;
-	text-align: center;
-	padding: 1em 2em;
-	background: #ffff;
-	border-radius: 1em;
-	background: #2cff57;
-`
-const Text = styled.p`
-	font-size: .8rem;
-	color: #666;
-`
-
-const TextLink = styled(Link)`
-	text-decoration: none;
-	font-weight: 600;
-	color: rgba(240,118,19,1);
-`
-const Span = styled.span`
-	font-weight: 600;
-	cursor: pointer;
-	color: blue;
-`
+import { useNavigate } from 'react-router-dom'
+import { Wrapper, Container, Title, Field, Feedback, Button, Alert, Text, TextLink, Span } from './styled'
 
 const schema = yup.object({
   fullname: yup.string().required('Nama Lengkap harus diisi'),

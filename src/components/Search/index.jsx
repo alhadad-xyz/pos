@@ -1,22 +1,6 @@
 import { useDispatch } from 'react-redux'
 import { setKeyword } from '../../app/features/Product/actions'
-
-import styled from 'styled-components'
-
-const Wrapper = styled.div`
-	max-width: 100%;
-	height: 2.4em;
-	margin: 0 2em;
-`
-const SearchBox = styled.input`
-	width: 100%;
-	height: 3em;
-	border: none;
-	font-size: .8rem;
-	border-radius: .8em;
-	padding: .4em 1.4em;
-	outline: none;
-`
+import { Wrapper, SearchBox } from './styled'
 
 const Search = () => {
   const dispatch = useDispatch();

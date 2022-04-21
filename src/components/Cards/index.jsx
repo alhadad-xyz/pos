@@ -1,17 +1,8 @@
 import { useDispatch } from 'react-redux'
 import { addItem } from '../../app/features/Cart/actions';
-import styled from 'styled-components'
 import CardPlaceholder from './CardPlaceholder'
 import Card from './Card'
-
-const Wrapper = styled.section`
-	max-width: 100%;
-	display: flex;
-	justify-content: space-between;
-	flex-wrap: wrap;
-	grid-gap: 1em 0;
-	margin: 1em 2em;
-`
+import { Wrapper } from './styled'
 
 const Cards = ({products}) => {
 	const dispatch = useDispatch();
